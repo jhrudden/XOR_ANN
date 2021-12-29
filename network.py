@@ -67,9 +67,6 @@ class NeuralNet:
             l_cost_gradient, self.sigmoid_derivative(l_weighted_inputs))
 
         bias_errors.insert(0, l_error)
-        # TODO: MAYBE
-        # TODO: need to calculate weight gradient for both neurons
-        # TODO: Right now its only on one
         l_weight_errors = np.multiply(l_inputs, l_error)
         weight_errors.insert(0, l_weight_errors)
 
@@ -97,7 +94,6 @@ class NeuralNet:
             bias_error = 0
             cost = 0
             for index in sample:
-                # TODO: Change update params to be on the averages of w_e and b_e
                 data = training_data[index]
                 X, Y_hat = data
                 Y, cache = self.forward_propagation(X)
